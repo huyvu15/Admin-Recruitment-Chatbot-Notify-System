@@ -41,14 +41,14 @@ function DashBoard() {
   });
   
   const s3Client = new S3Client({
-    region: 'ap-southeast-1',
+    region: 'us-east-1',
     credentials: {
       accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
       secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY
     }
   });
 
-  const BUCKET_NAME = 'vh-person-data';
+  const BUCKET_NAME = 'huy-person-data';
   const CARD_STYLES = "bg-white rounded-lg shadow-lg p-6 transition-all hover:shadow-xl";
 
   const fetchS3Files = async () => {
@@ -214,8 +214,8 @@ function DashBoard() {
   };
 
   const getFilePath = (fileKey) => {
-    const region = 'ap-southeast-1';
-    const bucketName = 'vh-person-data';
+    const region = 'us-east-1';
+    const bucketName = 'huy-person-data';
     const url = `https://${bucketName}.s3.${region}.amazonaws.com/${fileKey}`;
     return url;
   };
