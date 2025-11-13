@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    image: webadmin-frontend:latest
+    ports:
+      - "5173:80"
+    environment:
+      - VITE_AWS_ACCESS_KEY_ID
+      - VITE_AWS_SECRET_ACCESS_KEY
+      - VITE_CLIENT_URL
+      - VITE_EMAIL_ACCOUNT
+      - VITE_EMAIL_PASSWORD
+      - VITE_CLIENT_ID
+    volumes:
+      - ./:/app:cached
+    stdin_open: true
+    tty: true
